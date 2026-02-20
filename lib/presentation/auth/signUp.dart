@@ -42,7 +42,7 @@ class _SignUpState extends State<SignUp> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    navigatorPop(context);
+                    navigatorToSignIn(context);
                     clearControllers();
                   },
                   child: Icon(Icons.arrow_back_ios, color: Colors.white),
@@ -240,8 +240,17 @@ class _SignUpState extends State<SignUp> {
                             : Color(0xffF2F1F9),
                       ),
                       onPressed: () {
-                        navigatorToHome(context);
-                        clearControllers();
+                        if (emailController.text.isNotEmpty &&
+                            passwordController.text.isNotEmpty &&
+                            nameController.text.isNotEmpty && isRemember == true) {
+                          navigatorToHome(context);
+                          clearControllers();
+                          isRemember = false;
+                        } else {
+                          if (mounted) {
+                            setState(() {});
+                          }
+                        }
                       },
                       child: Text(
                         'Зарегистрироваться',

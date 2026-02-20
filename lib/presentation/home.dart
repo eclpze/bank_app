@@ -15,40 +15,40 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xff3629B7),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(height: 50),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-              child: Row(
-                children: [
-                  Image.asset('assets/avatar.png', width: 60),
-                  SizedBox(width: 20),
-                  Text(
-                    'Привет, Джон!',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      fontSize: 17,
-                      color: Colors.white,
-                    ),
+      body: Column(
+        children: [
+          SizedBox(height: 50),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+            child: Row(
+              children: [
+                Image.asset('assets/avatar.png', width: 60),
+                SizedBox(width: 20),
+                Text(
+                  'Привет, Джон!',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 17,
+                    color: Colors.white,
                   ),
-                  Spacer(),
-                  Image.asset('assets/notify.png', width: 26),
-                ],
-              ),
-            ),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.all(20),
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(20),
-                    topLeft: Radius.circular(20),
-                  ),
-                  color: Colors.white,
                 ),
+                Spacer(),
+                Image.asset('assets/notify.png', width: 26),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Container(
+              padding: EdgeInsets.all(20),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(20),
+                  topLeft: Radius.circular(20),
+                ),
+                color: Colors.white,
+              ),
+              child: SingleChildScrollView(
                 child: Column(
                   children: [
                     Image.asset('assets/cards.png',),
@@ -110,8 +110,8 @@ class _HomeState extends State<Home> {
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(

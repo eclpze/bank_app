@@ -36,7 +36,6 @@ void disposePageController() {
   pageController.dispose();
 }
 
-
 bool isRemember = false;
 bool isShow = false;
 int selectedIndex = 0;
@@ -155,6 +154,12 @@ void clearControllers() {
   emailController.clear();
   passwordController.clear();
   nameController.clear();
+  numberPhoneController.clear();
+  passwordConfirmController.clear();
+  bankController.clear();
+  cityController.clear();
+  nameScoreController.clear();
+  cardNumberController.clear();
 }
 
 void navigatorToInfoCard(context) {
@@ -164,15 +169,21 @@ void navigatorToInfoCard(context) {
 }
 
 void navigatorToSignIn(context) {
-  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SignIn()));
+  Navigator.of(
+    context,
+  ).pushReplacement(MaterialPageRoute(builder: (context) => SignIn()));
 }
 
 void navigatorToSignUp(context) {
-  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SignUp()));
+  Navigator.of(
+    context,
+  ).pushReplacement(MaterialPageRoute(builder: (context) => SignUp()));
 }
 
 void navigatorToHome(context) {
-  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Home()));
+  Navigator.of(
+    context,
+  ).pushReplacement(MaterialPageRoute(builder: (context) => Home()));
 }
 
 void navigatorToForgotPassword(context) {

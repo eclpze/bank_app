@@ -25,7 +25,7 @@ class _CreatePasswordState extends State<CreatePassword> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        navigatorPop(context);
+                        navigatorToForgotPassword(context);
                         clearControllers();
                       },
                       child: Icon(Icons.arrow_back_ios),
@@ -178,8 +178,16 @@ class _CreatePasswordState extends State<CreatePassword> {
                           backgroundColor: Color(0xff3629B7),
                         ),
                         onPressed: () {
-                          navigatorToHome(context);
-                          clearControllers();
+                          if (passwordController.text.isNotEmpty &&
+                              passwordConfirmController.text.isNotEmpty) {
+                            navigatorToHome(context);
+                            clearControllers();
+                            isShow = false;
+                          } else {
+                            if (mounted) {
+                              setState(() {});
+                            }
+                          }
                         },
                         child: Text(
                           'Сохранить',

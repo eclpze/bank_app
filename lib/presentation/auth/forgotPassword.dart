@@ -25,7 +25,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                   children: [
                     GestureDetector(
                       onTap: () {
-                        navigatorPop(context);
+                    navigatorToSignIn(context);
                         clearControllers();
                       },
                       child: Icon(Icons.arrow_back_ios),
@@ -73,7 +73,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                       SizedBox(height: 16),
                       TextField(
                         cursorColor: Color(0xff3629B7),
-                        controller: passwordController,
+                        controller: numberPhoneController,
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
                           hintText: '(+7) xxx xxx-xx-xx',
@@ -101,8 +101,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         children: [
                           GestureDetector(
                             onTap: () {
-                              navigatorToForgotPassword(context);
-                              clearControllers();
                             },
                             child: Text(
                               'Мы отправили код на номер телефона\nдля изменения пароля',
@@ -127,8 +125,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           backgroundColor: Color(0xff3629B7),
                         ),
                         onPressed: () {
-                      navigatorToCreatePassword(context);
-                          clearControllers();
+                          if (numberPhoneController.text.isNotEmpty) {
+                            navigatorToCreatePassword(context);
+                            clearControllers();
+                          } else {
+                            if (mounted) {
+                              setState(() {});
+                            }
+                          }
                         },
                         child: Text(
                           'Отправить',

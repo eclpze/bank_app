@@ -30,7 +30,6 @@ class _SignInState extends State<SignIn> {
     passwordController.removeListener(updateWidget);
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,7 +89,10 @@ class _SignInState extends State<SignIn> {
                       ],
                     ),
                     SizedBox(height: 30),
-                    Image.asset('assets/signin.png', width: MediaQuery.of(context).size.width * 0.5,),
+                    Image.asset(
+                      'assets/signin.png',
+                      width: MediaQuery.of(context).size.width * 0.5,
+                    ),
                     SizedBox(height: 30),
                     TextField(
                       keyboardType: TextInputType.emailAddress,
@@ -120,16 +122,10 @@ class _SignInState extends State<SignIn> {
                     SizedBox(height: 20),
                     TextField(
                       cursorColor: Color(0xff3629B7),
+                      obscureText: !isShow,
                       controller: passwordController,
                       keyboardType: TextInputType.visiblePassword,
-                      obscureText: !isShow,
                       decoration: InputDecoration(
-                        hintText: 'Пароль',
-                        hintStyle: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                          color: Color(0xffCBCBCB),
-                        ),
                         suffixIcon: GestureDetector(
                           onTap: () {
                             setState(() {
@@ -139,9 +135,17 @@ class _SignInState extends State<SignIn> {
                           child: Padding(
                             padding: const EdgeInsets.all(16.0),
                             child: SvgPicture.asset(
-                              'assets/icons/bottom-arrow.svg',
+                              isShow
+                                  ? 'assets/icons/eye-on.svg'
+                                  : 'assets/icons/eye-off.svg',
                             ),
                           ),
+                        ),
+                        hintText: '************',
+                        hintStyle: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 16,
+                          color: Color(0xffCBCBCB),
                         ),
                         border: OutlineInputBorder(
                           borderSide: BorderSide(color: Color(0xffCBCBCB)),
@@ -165,6 +169,7 @@ class _SignInState extends State<SignIn> {
                           onTap: () {
                             navigatorToForgotPassword(context);
                             clearControllers();
+                            isShow = false;
                           },
                           child: Text(
                             'Забыли пароль?',
@@ -190,8 +195,16 @@ class _SignInState extends State<SignIn> {
                             : Color(0xffF2F1F9),
                       ),
                       onPressed: () {
-                        navigatorToHome(context);
-                        clearControllers();
+                        if (emailController.text.isNotEmpty &&
+                            passwordController.text.isNotEmpty) {
+                          navigatorToHome(context);
+                          clearControllers();
+                          isShow = false;
+                        } else {
+                          if (mounted) {
+                            setState(() {});
+                          }
+                        }
                       },
                       child: Text(
                         'Войти',
@@ -203,7 +216,10 @@ class _SignInState extends State<SignIn> {
                       ),
                     ),
                     SizedBox(height: 30),
-                    Image.asset('assets/fingerprint.png', width:  MediaQuery.of(context).size.width * 0.15),
+                    Image.asset(
+                      'assets/fingerprint.png',
+                      width: MediaQuery.of(context).size.width * 0.15,
+                    ),
                     SizedBox(height: 25),
                     Row(
                       children: [
