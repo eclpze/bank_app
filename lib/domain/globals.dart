@@ -160,31 +160,31 @@ void clearControllers() {
 void navigatorToInfoCard(context) {
   Navigator.of(
     context,
-  ).push(MaterialPageRoute(builder: (context) => AboutCard()));
+  ).pushReplacement(MaterialPageRoute(builder: (context) => AboutCard()));
 }
 
 void navigatorToSignIn(context) {
-  Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignIn()));
+  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SignIn()));
 }
 
 void navigatorToSignUp(context) {
-  Navigator.of(context).push(MaterialPageRoute(builder: (context) => SignUp()));
+  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => SignUp()));
 }
 
 void navigatorToHome(context) {
-  Navigator.of(context).push(MaterialPageRoute(builder: (context) => Home()));
+  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => Home()));
 }
 
 void navigatorToForgotPassword(context) {
   Navigator.of(
     context,
-  ).push(MaterialPageRoute(builder: (context) => ForgotPassword()));
+  ).pushReplacement(MaterialPageRoute(builder: (context) => ForgotPassword()));
 }
 
 void navigatorToCreatePassword(context) {
   Navigator.of(
     context,
-  ).push(MaterialPageRoute(builder: (context) => CreatePassword()));
+  ).pushReplacement(MaterialPageRoute(builder: (context) => CreatePassword()));
 }
 
 void navigatorPop(context) {
