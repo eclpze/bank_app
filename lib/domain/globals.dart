@@ -4,6 +4,8 @@ import 'package:bank_app/presentation/auth/signIn.dart';
 import 'package:bank_app/presentation/auth/signUp.dart';
 import 'package:bank_app/presentation/cards/aboutCard.dart';
 import 'package:bank_app/presentation/home.dart';
+import 'package:bank_app/presentation/message.dart';
+import 'package:bank_app/presentation/search.dart';
 import 'package:bank_app/presentation/sections/beneficiary.dart';
 import 'package:bank_app/presentation/sections/cards.dart';
 import 'package:bank_app/presentation/sections/cash.dart';
@@ -13,6 +15,7 @@ import 'package:bank_app/presentation/sections/savings.dart';
 import 'package:bank_app/presentation/sections/score.dart';
 import 'package:bank_app/presentation/sections/transaction.dart';
 import 'package:bank_app/presentation/sections/translations.dart';
+import 'package:bank_app/presentation/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -124,6 +127,67 @@ List<String> titleListHome = [
   'Бенефициар',
 ];
 
+List<String> titleListSearch = [
+  'Филиал',
+  'Процентная ставка',
+  'Обменный курс',
+  'Обмен',
+];
+
+List<String> textListSearch = [
+  'Поиск филиала',
+  'Поиск процентной ставки',
+  'Поиск обменного курса',
+  'Обменять сумму денег',
+];
+
+List<String> imagesListSearch = [
+  'assets/search1.png',
+  'assets/search2.png',
+  'assets/search3.png',
+  'assets/search4.png',
+];
+
+List<String> titleListMessage = [
+  'ВТБ',
+  'Аккаунт',
+  'Оповещение',
+  'Paypal',
+  'Снятие средств'
+];
+
+List<String> textListMessage = [
+  'ВТБ : 256486 - код авторизации, который Вы получили для подтверждения номера телефона.',
+  'Ваш аккаунт ограничен. Пожалуйста, связитесь с нами.',
+  'Ваша выписка готова. Чтобы просмотреть её, зайдите в настройки.',
+  'Ваш аккаунт был заблокирован. Чтобы разблокировать, позвоните на горячую линию.',
+  'Уважаемый клиент, 2987456 - это код для подтверждения для снятия наличных с Вашей карты'
+];
+
+List<String> dataListMessage = [
+  'Вчера',
+  '12/10',
+  '11/10',
+  '10/11',
+  '10/12'
+];
+
+List<String> imagesListChats = [
+  'assets/icons/message1.svg',
+  'assets/icons/message2.svg',
+  'assets/icons/message3.svg',
+  'assets/icons/message4.svg',
+  'assets/icons/message5.svg',
+];
+
+List<String> titleListSettings = [
+  'Смена пароля',
+  'Touch ID',
+  'Сменить язык',
+  'Информация о приложении',
+  'Поддержка'
+];
+
 List<VoidCallback> actionsHome(BuildContext context) {
   return [
     () => Navigator.push(context, MaterialPageRoute(builder: (_) => Cards())),
@@ -184,6 +248,24 @@ void navigatorToHome(context) {
   Navigator.of(
     context,
   ).pushReplacement(MaterialPageRoute(builder: (context) => Home()));
+}
+
+void navigatorToSearch(context) {
+  Navigator.of(
+    context,
+  ).pushReplacement(MaterialPageRoute(builder: (context) => Search()));
+}
+
+void navigatorToChats(context) {
+  Navigator.of(
+    context,
+  ).pushReplacement(MaterialPageRoute(builder: (context) => Chats()));
+}
+
+void navigatorToSettings(context) {
+  Navigator.of(
+    context,
+  ).pushReplacement(MaterialPageRoute(builder: (context) => Settings()));
 }
 
 void navigatorToForgotPassword(context) {

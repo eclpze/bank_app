@@ -1,5 +1,6 @@
 import 'package:bank_app/domain/globals.dart';
 import 'package:bank_app/presentation/auth/signIn.dart';
+import 'package:bank_app/presentation/home.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,49 +12,49 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: SignIn());
+    return MaterialApp(debugShowCheckedModeBanner: false, home: Home());
   }
 }
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
-
-  @override
-  State<SplashScreen> createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Future.delayed(Duration(seconds: 1), () {
-      navigatorToSignIn(context);
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Center(
-          child: Column(
-            children: [
-              Spacer(),
-              Image.asset('assets/splash.png', width: 80),
-              SizedBox(height: 15),
-              Text(
-                'Center Bank',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w700,
-                ),
-              ),
-              Spacer(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class SplashScreen extends StatefulWidget {
+//   const SplashScreen({super.key});
+//
+//   @override
+//   State<SplashScreen> createState() => _SplashScreenState();
+// }
+//
+// class _SplashScreenState extends State<SplashScreen> {
+//   @override
+//   void initState() {
+//     super.initState();
+//     Future.delayed(Duration(seconds: 1), () {
+//       navigatorToSignIn(context);
+//     });
+//   }
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       backgroundColor: Colors.white,
+//       body: SafeArea(
+//         child: Center(
+//           child: Column(
+//             children: [
+//               Spacer(),
+//               Image.asset('assets/splash.png', width: 80),
+//               SizedBox(height: 15),
+//               Text(
+//                 'Center Bank',
+//                 style: TextStyle(
+//                   fontSize: 30,
+//                   fontWeight: FontWeight.w700,
+//                 ),
+//               ),
+//               Spacer(),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }

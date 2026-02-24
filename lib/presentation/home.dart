@@ -134,21 +134,29 @@ class _HomeState extends State<Home> {
               tabBackgroundColor: Color(0xff3629B7),
               color: Color(0xff898989),
               tabs: [
-                GButton(icon: Icons.home, text: 'Главная', onPressed: () {}),
+                GButton(icon: Icons.home, text: 'Главная', onPressed: () {
+                  navigatorToHome(context);
+                }),
                 GButton(
                   icon: Icons.search_rounded,
                   text: 'Поиск',
-                  onPressed: () {},
+                  onPressed: () {
+                    navigatorToSearch(context);
+                  },
                 ),
                 GButton(
                   icon: Icons.message,
                   text: 'Сообщения',
-                  onPressed: () {},
+                  onPressed: () {
+                    navigatorToChats(context);
+                  },
                 ),
                 GButton(
                   icon: Icons.settings,
                   text: 'Настройки',
-                  onPressed: () {},
+                  onPressed: () {
+                    navigatorToSettings(context);
+                  },
                 ),
               ],
               selectedIndex: selectedIndex,
