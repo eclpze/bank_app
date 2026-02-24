@@ -68,7 +68,7 @@ class _SettingsState extends State<Settings> {
                         shrinkWrap: true,
                         itemCount: titleListSettings.length,
                       ),
-                     SizedBox(height: 200,)
+                     SizedBox(height: 240,)
                     ],
                   ),
                 ),
